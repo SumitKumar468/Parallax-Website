@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;            /* universal selector ha ya */
+    box-sizing: border-box;
+}
+
+#wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden; /* vertical pa scroll hona band ho gya  */
+    perspective: 10px; /* 3D is ON and display or eye ke beech ka distance */
+}
+
+.container {
+    position:relative; /* position ke value non static honi chaiya jisa hm pictre ko overlap kar sakta hai */
+    height: 100%;
+    display: flex; /* ab ya normal container ab flex ma convert ho gya hai*/
+    justify-content: center;
+    align-items: center;     /* in teeno line sa adventure wala text center ma aa jya ga */
+    transform-style: preserve-3d; /* jitna bhe 3d change use hai unko hatana nhaii ha save rakhna hai */
+    z-index: -1; /* jo text ha vo upr aa gya image ke --- how work wha per value kyu de find out */ 
+}
+
+.background {
+    transform: translateZ(-40px) scale(5); /* translateZ se mountain image picha chali gai orr scale se image ko badi bna di wahi sa he */
+}
+
+.foreground {
+    transform: translateZ(-20px) scale(3); /* translateZ sa uncle ke image picha chali gai ha orr scale sa uncle ke image ko badi kr de hai */
+}
+.background , .foreground {
+    position: absolute; /* image overlap ho jya ge is line sa */
+    height: 100%;
+    width: 100%; /* image ke height or width set kr de hai */
+    object-fit: cover; /* image should bhe resize to fits its container */
+    z-index: -1; /* jo text ha vo upr aa gya image ke */
+}
+h1 {
+    color: black;
+    position: absolute; /* text position throught anchestors */
+    top: 10rem;
+    left: 50%;
+    font-size: 8rem;
+    transform: translateX(-50%);
+    letter-spacing: 4px;
+    font-family: sans-serif ;
+}
+section {
+    background-color: rgb(45,45,45);
+    color: white;
+    padding: 5rex 0;
+}
+.secHeading {
+    font-size: 5rem;
+    padding: 0 10rem;
+}
+
+.text {
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+}
+
+.bg{
+    position: relative;
+    width: 100%;                     /* Background image ko fixed krna ka liya hai */
+    background-attachment: fixed;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
+
+.desc {
+    position: absolute;
+    background-color: white;
+    padding: 0.5rem 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateX(-50%);
+    color: black;
+    font-size: 3.5rem;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.bg1 {
+    background-image: url(sport-1.jpg);
+}
+
+.bg2 {
+    background-image: url(sport-2.jpg);
+}
+.bg3 {
+    background-image: url(sport-3.jpg);
+}
